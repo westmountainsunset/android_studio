@@ -1,0 +1,24 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/this_is_a_normal_activity"
+        />
+    <Button
+        android:id="@+id/button_test_standard"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_standard_launch_by_restart_self"
+        />
+    <Button
+        android:id="@+id/button_test_singleTop"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/test_singletop_launch_by_intent_to_mainact"
+        />
+
+</LinearLayout>

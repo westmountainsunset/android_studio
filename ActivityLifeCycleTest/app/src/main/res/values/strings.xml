@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">ActivityLifeCycleTest</string>
+    <string name="this_is_a_normal_activity">This is a normal activity</string>
+    <string name="test_standard_launch_by_restart_self">test standard launch by restart self</string>
+    <string name="test_singleTop_launch_by_intent_to_MainAct" />
+    <string name="test_singletop_launch_by_intent_to_mainact">test_singleTop_launch_by_intent_to_MainAct</string>
+    <string name="test_singleinstance_by_go_to_normal_activity">test singleInstance by go to normal activity</string>
+</resources>

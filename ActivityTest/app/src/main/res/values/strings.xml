@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">ActivityTest</string>
+    <string name="activity_response_for_net">intent add data tag for activity</string>
+    <string name="intent_implicit_to_baidu">intent implicit to baidu</string>
+    <string name="intent_implicit">intent implicit</string>
+    <string name="_2nd_activity">2nd activity</string>
+    <string name="button_1">Button 1</string>
+    <string name="exit">exit</string>
+    <string name="activity_response_for_dial">intent activity response for dial</string>
+    <string name="intent_pass_data">intent pass data</string>
+    <string name="intent_return_data">intent return data</string>
+    <string name="return_data" >return data</string>
+    <string name="_3rd_activity_return_data_to_1st">3rd activity return data to 1st</string>
+
+</resources>

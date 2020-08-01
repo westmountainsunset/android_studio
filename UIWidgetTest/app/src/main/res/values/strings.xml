@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">UIWidgetTest</string>
+    <string name="get_edittext">get EditText</string>
+    <string name="type_something_here">type something here</string>
+    <string name="change_img">change img</string>
+    <string name="show_dialog">show dialog</string>
+    <string name="show_progress_dialog">show progeress dialog</string>
+    <string name="show_progress_bar">show progress bar</string>
+</resources>
