@@ -1,3 +1,5 @@
 1. HelloWorld
 2. ActivityTest
 3. ActivityLifeCycleTest
+
+7.4prj=>C6.DatabaseTest
