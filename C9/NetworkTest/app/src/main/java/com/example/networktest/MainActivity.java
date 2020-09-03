@@ -13,12 +13,19 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.HttpsURLConnection;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView responseText;
+
+    // threadpool to req
+    ThreadPoolExecutor threadpool = new ThreadPoolExecutor(5, 10 ,
+            60, TimeUnit.SECONDS, new LinkedBlockingDeque<Runnable>());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,12 +37,30 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (view.getId() == R.id.send_request){
-                    sendRequestWithHttpURLConnection();
+                    //sendRequestWithHttpURLConnection();
+                    /*callback to improve cpu utilization*/
+                   // sendRequestWithHttpUtil();
+                    sendReqByThreadPool();
                 }
             }
         });
     }
     
+    //todo ThreadPool realize
+    private void sendRequestWithHttpUtil(){
+        HttpUtil.sendHttpRequest("https://www.baidu.com", new HttpCallbackListener() {
+            @Override
+            public void onFinish(String response) {
+                showResponse(response);
+            }
+
+            @Override
+            public void onError(Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
 
     // todo ThreadPool realize
     private void sendRequestWithHttpURLConnection(){
@@ -75,6 +100,26 @@ public class MainActivity extends AppCompatActivity {
             }
         }).start();
     }
+    //thread pool realize
+    private void sendReqByThreadPool(){
+        threadpool.execute(new Runnable() {
+            @Override
+            public void run() {
+               HttpUtil.sendReq( "https://www.baidu.com", new HttpCallbackListener() {
+                   @Override
+                   public void onFinish(String response) {
+                       showResponse(response);
+                   }
+
+                   @Override
+                   public void onError(Exception e) {
+                       e.printStackTrace();
+                   }
+               });
+            }
+        });
+    }
+
     private void showResponse(final String response) {
         runOnUiThread(new Runnable() {
             @Override
